@@ -4,22 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b12">
-  <meta name="description" content="Dawood Khan — Electrical Engineering student exploring software, embedded systems, cloud and DevOps.">
+  <meta name="description" content="Dawood Khan — Electrical Engineering Student, Embedded Systems, Python Developer & DevOps Enthusiast in Lahore, Pakistan.">
   <title>Dawood Khan | Personal Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Canvas background for dynamic particle animation -->
+  <canvas id="particleCanvas"></canvas>
+
   <div class="progress" id="progress"></div>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Dawood Khan home"><span class="brand-mark">D</span><span>DAWOOD<span class="muted">.KHAN</span></span></a>
+    <a class="brand" href="#home" aria-label="Dawood Khan home">
+      <span class="brand-mark">D</span>
+      <span>DAWOOD<span class="muted">.KHAN</span></span>
+    </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     <nav id="nav">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
       <a class="nav-cta" href="assets/cv.pdf" target="_blank" rel="noopener">View CV ↗</a>
     </nav>
   </header>
@@ -27,57 +39,146 @@
   <main>
     <section class="hero section" id="home">
       <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="status-dot"></span> PERSONAL PORTFOLIO <span class="eyebrow-line"></span> LAHORE, PAKISTAN</div>
-        <h1>Curious mind.<br><span class="gradient-text">Builder's mindset.</span></h1>
-        <p class="hero-lede">I'm Dawood — an Electrical Engineering student exploring the space between hardware, software, and the cloud.</p>
-        <p class="hero-note">I enjoy learning how systems work, turning ideas into projects, and getting a little better with every build.</p>
-        <div class="hero-actions"><a class="button primary" href="#projects">Explore my work <span>↘</span></a><a class="button secondary" href="assets/cv.pdf" target="_blank" rel="noopener">View my CV <span>↗</span></a></div>
-        <div class="hero-meta"><span><i></i> Electrical Engineering</span><span><i></i> Software · Embedded · Cloud</span></div>
+        <div class="eyebrow">
+          <span class="status-dot"></span> AVAILABLE FOR OPPORTUNITIES 
+          <span class="eyebrow-line"></span> LAHORE, PAKISTAN
+        </div>
+        <h1>
+          Electrical Engineer &amp; <br>
+          <span class="gradient-text" id="typewriter"></span><span class="cursor">|</span>
+        </h1>
+        <p class="hero-lede">
+          I'm Dawood Khan — bridging the gap between hardware, software, embedded DevOps, and cloud systems.
+        </p>
+        <p class="hero-note">
+          Co-founding TechFlo, building custom hardware/software solutions, RISC-V libraries, and self-balancing robotics.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore My Work <span>↘</span></a>
+          <a class="button secondary" href="assets/cv.pdf" target="_blank" rel="noopener">View CV <span>↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <span><i></i> Electrical Engineering</span>
+          <span><i></i> Embedded DevOps · RISC-V · AI</span>
+        </div>
       </div>
-      <div class="hero-art reveal" aria-label="Abstract animated portfolio graphic">
-        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
-        <div class="core"><div class="core-inner">DK<span>_</span></div></div>
-        <span class="float-tag tag-one">BUILD / LEARN</span><span class="float-tag tag-two">01 — ALWAYS CURIOUS</span>
-        <span class="orbit-point point-a"></span><span class="orbit-point point-b"></span><span class="orbit-point point-c"></span>
-        <div class="art-caption"><span>IN PROGRESS</span><span>VERSION 01.0</span></div>
+
+      <div class="hero-art reveal" aria-label="Animated embedded core graphics">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="orbit orbit-c"></div>
+        <div class="core">
+          <div class="core-inner">DK<span>_</span></div>
+        </div>
+        <span class="float-tag tag-one">EMBEDDED / AI</span>
+        <span class="float-tag tag-two">01 — TECHFLO.CO</span>
+        <span class="orbit-point point-a"></span>
+        <span class="orbit-point point-b"></span>
+        <span class="orbit-point point-c"></span>
+        <div class="art-caption">
+          <span>ACTIVE BUILD</span>
+          <span>VERSION 2.0</span>
+        </div>
       </div>
+
       <a class="scroll-cue" href="#about"><span class="scroll-line"></span> SCROLL TO EXPLORE</a>
     </section>
 
     <section class="section about-section" id="about">
-      <div class="section-heading reveal"><span class="section-index">01 / ABOUT</span><h2>A little about <span class="gradient-text">me.</span></h2></div>
+      <div class="section-heading reveal">
+        <span class="section-index">01 / ABOUT</span>
+        <h2>Engineering systems from <span class="gradient-text">silicon to cloud.</span></h2>
+      </div>
       <div class="about-grid">
-        <div class="about-main reveal"><p class="large-copy">I’m interested in how things connect — from circuits and embedded devices to applications, automation, and cloud infrastructure.</p><p>My background is in Electrical Engineering, and I’m growing my skills across programming, problem-solving, and modern software workflows. This site is my evolving workspace: a place to document what I’m learning, share what I build, and keep track of the next challenge.</p><p class="small-note">This is a starter profile. Personal details, dates, achievements and project descriptions should be checked and updated before publishing.</p></div>
-        <div class="about-aside reveal"><div class="fact-card"><span class="fact-number">01</span><span class="fact-label">THINK</span><p>Understand the problem before reaching for a solution.</p></div><div class="fact-card"><span class="fact-number">02</span><span class="fact-label">BUILD</span><p>Learn by making real things, testing, and iterating.</p></div><div class="fact-card"><span class="fact-number">03</span><span class="fact-label">GROW</span><p>Stay curious and keep improving one step at a time.</p></div></div>
+        <div class="about-main reveal">
+          <p class="large-copy">
+            I build intelligent hardware, system-level software, and streamlined DevOps pipelines for complex engineering challenges.
+          </p>
+          <p>
+            With an academic background in Electrical Engineering, my work ranges from programming low-level microcontrollers (ESP32, RISC-V extensions) to architecting cloud infrastructure and deep learning pipelines. I am also working on TechFlo (techflo.co), an engineering agency focusing on embedded DevOps, hardware dashboards, and AI automation.
+          </p>
+        </div>
+        <div class="about-aside reveal">
+          <div class="fact-card">
+            <span class="fact-number">01</span>
+            <span class="fact-label">HARDWARE &amp; SOFTWARE</span>
+            <p>Integrating microcontrollers, sensors, and low-level code with modern web and cloud dashboards.</p>
+          </div>
+          <div class="fact-card">
+            <span class="fact-number">02</span>
+            <span class="fact-label">AUTOMATION &amp; DEVOPS</span>
+            <p>Building automated deployment pipelines, CI/CD, and Docker environments for software stability.</p>
+          </div>
+          <div class="fact-card">
+            <span class="fact-number">03</span>
+            <span class="fact-label">PROBLEM SOLVING</span>
+            <p>Designing solutions with a strong foundation in Python, C++, Linux, and deep learning.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section skills-section" id="skills">
-      <div class="section-heading reveal"><span class="section-index">02 / TOOLKIT</span><h2>Things I work <span class="gradient-text">with.</span></h2><p class="section-description">A living toolkit — edit the list in <code>script.js</code> to match your current level.</p></div>
+      <div class="section-heading reveal">
+        <span class="section-index">02 / TOOLKIT</span>
+        <h2>Technical <span class="gradient-text">Capabilities.</span></h2>
+        <p class="section-description">Core technical proficiencies in system engineering, software, and development tools.</p>
+      </div>
       <div class="skill-groups" id="skillGroups"></div>
     </section>
 
     <section class="section projects-section" id="projects">
-      <div class="section-heading reveal"><span class="section-index">03 / SELECTED WORK</span><h2>Ideas turned into <span class="gradient-text">projects.</span></h2><p class="section-description">Show what you are building now and what you have completed. Replace sample links with your own repositories and demos.</p></div>
-      <div class="project-filters reveal" id="projectFilters"><button class="filter active" data-filter="All">All work</button><button class="filter" data-filter="Ongoing">Ongoing</button><button class="filter" data-filter="Completed">Completed</button></div>
+      <div class="section-heading reveal">
+        <span class="section-index">03 / SELECTED WORK</span>
+        <h2>Featured <span class="gradient-text">Projects.</span></h2>
+        <p class="section-description">Robotics, embedded systems, system programming, and engineering ventures.</p>
+      </div>
+      <div class="project-filters reveal" id="projectFilters">
+        <button class="filter active" data-filter="All">All Projects</button>
+        <button class="filter" data-filter="Embedded">Embedded / Hardware</button>
+        <button class="filter" data-filter="Software">Software &amp; Systems</button>
+        <button class="filter" data-filter="Agency">Agencies / Work</button>
+      </div>
       <div class="project-grid" id="projectGrid"></div>
     </section>
 
     <section class="section journey-section" id="journey">
-      <div class="section-heading reveal"><span class="section-index">04 / JOURNEY</span><h2>Learning is a <span class="gradient-text">long game.</span></h2><p class="section-description">An editable timeline for education, experience, courses, and milestones.</p></div>
+      <div class="section-heading reveal">
+        <span class="section-index">04 / JOURNEY</span>
+        <h2>Experience &amp; <span class="gradient-text">Milestones.</span></h2>
+        <p class="section-description">Academic credentials, hands-on experience, and professional activities.</p>
+      </div>
       <div class="timeline" id="timeline"></div>
     </section>
 
     <section class="section cv-section">
-      <div class="cv-panel reveal"><div><span class="section-index">05 / RESUME</span><h2>Want the full picture?</h2><p>Open my professional CV for a concise overview of my education, skills, and experience.</p><span class="cv-tip">Add your PDF at <code>assets/cv.pdf</code> to activate this button.</span></div><a class="button primary" href="assets/cv.pdf" target="_blank" rel="noopener">Open CV <span>↗</span></a></div>
+      <div class="cv-panel reveal">
+        <div>
+          <span class="section-index">05 / RESUME</span>
+          <h2>Looking for my complete resume?</h2>
+          <p>Download my professional CV to view full technical specifications, academic performance, and credentials.</p>
+        </div>
+        <a class="button primary" href="assets/cv.pdf" target="_blank" rel="noopener">Open CV <span>↗</span></a>
+      </div>
     </section>
 
     <section class="section contact-section" id="contact">
-      <div class="section-heading reveal"><span class="section-index">06 / GET IN TOUCH</span><h2>Let's connect and <span class="gradient-text">build.</span></h2><p class="section-description">For collaborations, opportunities, or a good technical conversation.</p></div>
+      <div class="section-heading reveal">
+        <span class="section-index">06 / GET IN TOUCH</span>
+        <h2>Let's connect and <span class="gradient-text">collaborate.</span></h2>
+        <p class="section-description">Reach out for software development, embedded engineering, or agency work.</p>
+      </div>
       <div class="contact-grid reveal" id="contactLinks"></div>
     </section>
   </main>
 
-  <footer><a class="brand" href="#home"><span class="brand-mark">D</span><span>DAWOOD<span class="muted">.KHAN</span></span></a><span>Designed to evolve. © <span id="year"></span> Dawood Khan</span><a href="#home" class="back-top">BACK TO TOP ↑</a></footer>
+  <footer>
+    <a class="brand" href="#home">
+      <span class="brand-mark">D</span>
+      <span>DAWOOD<span class="muted">.KHAN</span></span>
+    </a>
+    <span>Engineered with precision. © <span id="year"></span> Dawood Khan</span>
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+  </footer>
 </body>
 </html>
