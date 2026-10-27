@@ -1,184 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080b12">
-  <meta name="description" content="Dawood Khan — Electrical Engineering Student, Embedded Systems, Python Developer & DevOps Enthusiast in Lahore, Pakistan.">
-  <title>Dawood Khan | Personal Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030712">
+  <meta name="description" content="Dawood Khan — Portfolio. Electrical Engineer, Embedded Systems Specialist & TechFlo Co-Founder.">
+  <title>Dawood Khan | Interactive Cyber-Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Canvas background for dynamic particle animation -->
-  <canvas id="particleCanvas"></canvas>
 
-  <div class="progress" id="progress"></div>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
+  <!-- Custom Glowing Cursor Follower -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Dawood Khan home">
-      <span class="brand-mark">D</span>
-      <span>DAWOOD<span class="muted">.KHAN</span></span>
+  <!-- Interactive Matrix & Particle Background Canvas -->
+  <canvas id="cyberCanvas"></canvas>
+
+  <!-- Ambient Glow Blobs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="header">
+    <a href="#hero" class="logo">
+      <span class="logo-box">&lt;DK/&gt;</span>
+      <span class="logo-text">DAWOOD<span class="highlight">.KHAN</span></span>
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav id="nav">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#journey">Journey</a>
-      <a href="#contact">Contact</a>
-      <a class="nav-cta" href="assets/cv.pdf" target="_blank" rel="noopener">View CV ↗</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="navMenu">
+      <a href="#about" class="nav-link">System.About()</a>
+      <a href="#skills" class="nav-link">Capabilities()</a>
+      <a href="#projects" class="nav-link">Deployments()</a>
+      <a href="#timeline" class="nav-link">Log()</a>
+      <a href="#contact" class="nav-link">Connect()</a>
+      <a href="assets/cv.pdf" target="_blank" rel="noopener" class="cv-btn">Fetch_CV ↗</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero section" id="home">
-      <div class="hero-copy reveal">
-        <div class="eyebrow">
-          <span class="status-dot"></span> AVAILABLE FOR OPPORTUNITIES 
-          <span class="eyebrow-line"></span> LAHORE, PAKISTAN
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+        <div class="hero-content reveal">
+          <div class="terminal-badge">
+            <span class="pulse-icon"></span> SYSTEM_ONLINE // LAHORE, PK
+          </div>
+          <h1 class="hero-title">
+            Architecting <br>
+            <span class="glitch-text" data-text="Next-Gen Systems">Next-Gen Systems</span>
+          </h1>
+          <p class="hero-typing">
+            &gt; <span id="typewriterText"></span><span class="type-cursor">|</span>
+          </p>
+          <p class="hero-subtext">
+            Electrical Engineering student bridging hardware silicon, RISC-V compute, embedded DevOps, and cloud-native solutions.
+          </p>
+          <div class="hero-btns">
+            <a href="#projects" class="cyber-btn primary">
+              <span class="btn-content">EXPLORE DEPLOYMENTS ↘</span>
+              <span class="btn-glitch"></span>
+            </a>
+            <a href="assets/cv.pdf" target="_blank" rel="noopener" class="cyber-btn secondary">
+              <span class="btn-content">DOWNLOAD CV ↗</span>
+            </a>
+          </div>
         </div>
-        <h1>
-          Electrical Engineer &amp; <br>
-          <span class="gradient-text" id="typewriter"></span><span class="cursor">|</span>
-        </h1>
-        <p class="hero-lede">
-          I'm Dawood Khan — bridging the gap between hardware, software, embedded DevOps, and cloud systems.
-        </p>
-        <p class="hero-note">
-          Co-founding TechFlo, building custom hardware/software solutions, RISC-V libraries, and self-balancing robotics.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">Explore My Work <span>↘</span></a>
-          <a class="button secondary" href="assets/cv.pdf" target="_blank" rel="noopener">View CV <span>↗</span></a>
-        </div>
-        <div class="hero-meta">
-          <span><i></i> Electrical Engineering</span>
-          <span><i></i> Embedded DevOps · RISC-V · AI</span>
+
+        <div class="hero-portrait-wrapper reveal">
+          <div class="cyber-frame tilt-card">
+            <div class="frame-corner top-left"></div>
+            <div class="frame-corner top-right"></div>
+            <div class="frame-corner bottom-left"></div>
+            <div class="frame-corner bottom-right"></div>
+            <div class="image-container">
+              <!-- Configured for assets/profile.png -->
+              <img src="assets/profile.png" alt="Dawood Khan" class="profile-photo" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800'">
+              <div class="scanline"></div>
+            </div>
+            <div class="frame-tag">FOUNDER @ TECHFLO.CO</div>
+          </div>
         </div>
       </div>
-
-      <div class="hero-art reveal" aria-label="Animated embedded core graphics">
-        <div class="orbit orbit-a"></div>
-        <div class="orbit orbit-b"></div>
-        <div class="orbit orbit-c"></div>
-        <div class="core">
-          <div class="core-inner">DK<span>_</span></div>
-        </div>
-        <span class="float-tag tag-one">EMBEDDED / AI</span>
-        <span class="float-tag tag-two">01 — TECHFLO.CO</span>
-        <span class="orbit-point point-a"></span>
-        <span class="orbit-point point-b"></span>
-        <span class="orbit-point point-c"></span>
-        <div class="art-caption">
-          <span>ACTIVE BUILD</span>
-          <span>VERSION 2.0</span>
-        </div>
-      </div>
-
-      <a class="scroll-cue" href="#about"><span class="scroll-line"></span> SCROLL TO EXPLORE</a>
+      <a href="#about" class="scroll-down">
+        <div class="mouse-icon"><div class="wheel"></div></div>
+        <span>SCROLL TO INITIALIZE</span>
+      </a>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="section-heading reveal">
-        <span class="section-index">01 / ABOUT</span>
-        <h2>Engineering systems from <span class="gradient-text">silicon to cloud.</span></h2>
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="section-header reveal">
+        <span class="tag">&lt;01_OVERVIEW&gt;</span>
+        <h2>Engineering <span class="gradient-text">Hardware &amp; Software</span> Convergence</h2>
       </div>
       <div class="about-grid">
-        <div class="about-main reveal">
-          <p class="large-copy">
-            I build intelligent hardware, system-level software, and streamlined DevOps pipelines for complex engineering challenges.
+        <div class="about-card glass-card reveal tilt-card">
+          <div class="card-glow"></div>
+          <h3>The Mission</h3>
+          <p>
+            I operate at the intersection of electrical engineering, hardware prototyping, and high-performance software engineering. From custom <b>ESP32 self-balancing robotics</b> and <b>RISC-V architecture simulation libraries</b> to cloud automation and <b>Docker/Jenkins CI/CD deployment pipelines</b>.
           </p>
           <p>
-            With an academic background in Electrical Engineering, my work ranges from programming low-level microcontrollers (ESP32, RISC-V extensions) to architecting cloud infrastructure and deep learning pipelines. I am also working on TechFlo (techflo.co), an engineering agency focusing on embedded DevOps, hardware dashboards, and AI automation.
+            Co-founding <b>TechFlo (techflo.co)</b> to deliver automated hardware dashboards, FPGA implementations, and AI workflows.
           </p>
         </div>
-        <div class="about-aside reveal">
-          <div class="fact-card">
-            <span class="fact-number">01</span>
-            <span class="fact-label">HARDWARE &amp; SOFTWARE</span>
-            <p>Integrating microcontrollers, sensors, and low-level code with modern web and cloud dashboards.</p>
+        <div class="stats-grid">
+          <div class="stat-box glass-card reveal tilt-card">
+            <span class="stat-num" data-target="8">0</span>
+            <span class="stat-label">Solar Panel Array (585W)</span>
           </div>
-          <div class="fact-card">
-            <span class="fact-number">02</span>
-            <span class="fact-label">AUTOMATION &amp; DEVOPS</span>
-            <p>Building automated deployment pipelines, CI/CD, and Docker environments for software stability.</p>
+          <div class="stat-box glass-card reveal tilt-card">
+            <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
+            <span class="stat-label">System Automation</span>
           </div>
-          <div class="fact-card">
-            <span class="fact-number">03</span>
-            <span class="fact-label">PROBLEM SOLVING</span>
-            <p>Designing solutions with a strong foundation in Python, C++, Linux, and deep learning.</p>
+          <div class="stat-box glass-card reveal tilt-card">
+            <span class="stat-num" data-target="7">0</span><span class="stat-plus">kW</span>
+            <span class="stat-label">Inverter Infrastructure</span>
+          </div>
+          <div class="stat-box glass-card reveal tilt-card">
+            <span class="stat-num" data-target="1">0</span><span class="stat-plus">st</span>
+            <span class="stat-label">Class Engineering</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section skills-section" id="skills">
-      <div class="section-heading reveal">
-        <span class="section-index">02 / TOOLKIT</span>
-        <h2>Technical <span class="gradient-text">Capabilities.</span></h2>
-        <p class="section-description">Core technical proficiencies in system engineering, software, and development tools.</p>
+    <!-- SKILLS SECTION WITH ANIMATED BARS -->
+    <section class="section" id="skills">
+      <div class="section-header reveal">
+        <span class="tag">&lt;02_CAPABILITIES&gt;</span>
+        <h2>Technical <span class="gradient-text">Stack &amp; Skills</span></h2>
       </div>
-      <div class="skill-groups" id="skillGroups"></div>
+      <div class="skills-grid" id="skillsContainer"></div>
     </section>
 
-    <section class="section projects-section" id="projects">
-      <div class="section-heading reveal">
-        <span class="section-index">03 / SELECTED WORK</span>
-        <h2>Featured <span class="gradient-text">Projects.</span></h2>
-        <p class="section-description">Robotics, embedded systems, system programming, and engineering ventures.</p>
+    <!-- PROJECTS SECTION WITH 3D TILT CARDS -->
+    <section class="section" id="projects">
+      <div class="section-header reveal">
+        <span class="tag">&lt;03_DEPLOYMENTS&gt;</span>
+        <h2>Featured <span class="gradient-text">Projects &amp; Ventures</span></h2>
       </div>
-      <div class="project-filters reveal" id="projectFilters">
-        <button class="filter active" data-filter="All">All Projects</button>
-        <button class="filter" data-filter="Embedded">Embedded / Hardware</button>
-        <button class="filter" data-filter="Software">Software &amp; Systems</button>
-        <button class="filter" data-filter="Agency">Agencies / Work</button>
+      <div class="project-filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">ALL_SYSTEMS</button>
+        <button class="filter-btn" data-filter="embedded">EMBEDDED_HARDWARE</button>
+        <button class="filter-btn" data-filter="software">SOFTWARE_DEVOPS</button>
+        <button class="filter-btn" data-filter="agency">VENTURES</button>
       </div>
-      <div class="project-grid" id="projectGrid"></div>
+      <div class="projects-grid" id="projectsContainer"></div>
     </section>
 
-    <section class="section journey-section" id="journey">
-      <div class="section-heading reveal">
-        <span class="section-index">04 / JOURNEY</span>
-        <h2>Experience &amp; <span class="gradient-text">Milestones.</span></h2>
-        <p class="section-description">Academic credentials, hands-on experience, and professional activities.</p>
+    <!-- TIMELINE LOG SECTION -->
+    <section class="section" id="timeline">
+      <div class="section-header reveal">
+        <span class="tag">&lt;04_SYSTEM_LOG&gt;</span>
+        <h2>Experience &amp; <span class="gradient-text">Education</span></h2>
       </div>
-      <div class="timeline" id="timeline"></div>
+      <div class="timeline-wrapper" id="timelineContainer"></div>
     </section>
 
-    <section class="section cv-section">
-      <div class="cv-panel reveal">
-        <div>
-          <span class="section-index">05 / RESUME</span>
-          <h2>Looking for my complete resume?</h2>
-          <p>Download my professional CV to view full technical specifications, academic performance, and credentials.</p>
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="section-header reveal">
+        <span class="tag">&lt;05_TRANSMISSION&gt;</span>
+        <h2>Initialize <span class="gradient-text">Connection</span></h2>
+      </div>
+      <div class="contact-card glass-card reveal">
+        <div class="contact-info">
+          <h3>Ready to collaborate on hardware, software, or agency work?</h3>
+          <p>Direct communication channel is open for opportunities and innovative projects.</p>
         </div>
-        <a class="button primary" href="assets/cv.pdf" target="_blank" rel="noopener">Open CV <span>↗</span></a>
+        <div class="contact-links" id="contactContainer"></div>
       </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="section-heading reveal">
-        <span class="section-index">06 / GET IN TOUCH</span>
-        <h2>Let's connect and <span class="gradient-text">collaborate.</span></h2>
-        <p class="section-description">Reach out for software development, embedded engineering, or agency work.</p>
-      </div>
-      <div class="contact-grid reveal" id="contactLinks"></div>
     </section>
   </main>
 
-  <footer>
-    <a class="brand" href="#home">
-      <span class="brand-mark">D</span>
-      <span>DAWOOD<span class="muted">.KHAN</span></span>
-    </a>
-    <span>Engineered with precision. © <span id="year"></span> Dawood Khan</span>
-    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">&lt;DK/&gt; DAWOOD KHAN</div>
+      <div>Designed &amp; Engineered with Custom JS + CSS. © <span id="year"></span></div>
+      <a href="#hero" class="top-btn">SYSTEM_TOP ↑</a>
+    </div>
   </footer>
+
 </body>
 </html>
